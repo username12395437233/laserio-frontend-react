@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ErrorState, LoadingState } from "../components/common/States";
 import { useProduct } from "../lib/hooks";
-import { normalizeImageUrl } from "../lib/api";
+import { normalizeImageUrl, type ProductDocument } from "../lib/api";
 
 export function ProductPage() {
   const { slug = "" } = useParams();
@@ -174,6 +174,7 @@ export function ProductPage() {
       <ProductTabs
         descriptionHtml={data.content_html}
         specsHtml={data.specs_html}
+        docs={data.docs}
         docUrl={data.doc_url}
       />
 
@@ -338,12 +339,31 @@ export function ProductPage() {
 type ProductTabsProps = {
   descriptionHtml?: string | null;
   specsHtml?: string | null;
+  docs?: ProductDocument[] | null;
   docUrl?: string | null;
 };
 
-function ProductTabs({ descriptionHtml, specsHtml, docUrl }: ProductTabsProps) {
+function ProductTabs({
+  descriptionHtml,
+  specsHtml,
+  docs,
+  docUrl,
+}: ProductTabsProps) {
   const hasSpecs = !!specsHtml;
-  const hasDocs = !!docUrl;
+  const productDocs =
+    docs?.filter((doc) => doc.url) ??
+    (docUrl
+      ? [
+          {
+            id: docUrl,
+            url: docUrl,
+            mime: "",
+            size: 0,
+            filename: "Documentation",
+          },
+        ]
+      : []);
+  const hasDocs = productDocs.length > 0;
 
   const [active, setActive] = useState<"description" | "specs" | "docs">(
     "description",
@@ -379,27 +399,14 @@ function ProductTabs({ descriptionHtml, specsHtml, docUrl }: ProductTabsProps) {
         {hasDocs && (
           <button
             type="button"
-            onClick={() => {
-              if (hasDocs && docUrl) {
-                try {
-                  const link = document.createElement("a");
-                  link.href = docUrl;
-                  link.download = "";
-                  document.body.appendChild(link);
-                  link.click();
-                  document.body.removeChild(link);
-                } catch {
-                  window.open(docUrl, "_blank", "noopener,noreferrer");
-                }
-              }
-            }}
+            onClick={() => setActive("docs")}
             className={`border-b-2 pb-2 ${
               active === "docs"
                 ? "border-laser-blue text-laser-blue"
                 : "border-transparent text-slate-500"
             }`}
           >
-            Скачать документацию
+            Документация
           </button>
         )}
       </div>
@@ -416,8 +423,45 @@ function ProductTabs({ descriptionHtml, specsHtml, docUrl }: ProductTabsProps) {
           <div dangerouslySetInnerHTML={{ __html: specsHtml }} />
         )}
 
-        {/* Вкладка документации не показывает отдельный контент,
-            клик по кнопке сразу инициирует скачивание файла. */}
+        {active === "docs" && hasDocs && (
+          <ul className="not-prose divide-y divide-slate-200 rounded-xl border border-slate-200">
+            {productDocs.map((doc) => (
+              <li
+                key={doc.id}
+                className="flex items-center gap-3 px-4 py-3 text-sm"
+              >
+                <span
+                  className="min-w-0 flex-1 truncate text-slate-700"
+                  title={doc.filename}
+                >
+                  {doc.filename}
+                </span>
+                <a
+                  href={normalizeImageUrl(doc.url) ?? doc.url}
+                  download={doc.filename}
+                  aria-label={`Скачать ${doc.filename}`}
+                  title="Скачать"
+                  className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-laser-blue transition hover:bg-sky-50 hover:text-sky-700"
+                >
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    className="h-5 w-5"
+                  >
+                    <path
+                      d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </a>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
     </div>
   );

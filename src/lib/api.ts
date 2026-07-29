@@ -77,6 +77,14 @@ export type ProductGalleryItem = {
   filename: string;
 };
 
+export type ProductDocument = {
+  id: string;
+  url: string;
+  mime: string;
+  size: number;
+  filename: string;
+};
+
 export type ProductDetail = {
   id: number;
   name: string;
@@ -86,6 +94,8 @@ export type ProductDetail = {
   gallery?: ProductGalleryItem[] | null;
   content_html?: string | null;
   specs_html?: string | null;
+  docs?: ProductDocument[] | null;
+  /** @deprecated API now returns an array in `docs`. */
   doc_url?: string | null;
 };
 
