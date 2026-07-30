@@ -34,7 +34,7 @@ export function Breadcrumbs() {
   const staticLabels: Record<string, string> = {
     catalog: "Каталог",
     categories: "Карта каталога",
-    products: "Товары",
+    products: "Каталог",
     contacts: "Контакты",
   };
 

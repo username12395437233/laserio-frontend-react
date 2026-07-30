@@ -1,15 +1,23 @@
 /* Global layout helpers specific to the app shell; most styling lives in Tailwind classes. */
 
+@keyframes reveal-email {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .gradient-header {
   background: linear-gradient(to bottom, #1A3D63 0%, #0A1832 100%);
 }
 
 .gradient-header-reverse {
   background: linear-gradient(to top, #1A3D63 0%, #0A1832 100%);
-}
-
-.catalog-card-shadow {
-  box-shadow: 0 18px 45px rgba(4, 23, 51, 0.35);
 }
 
 .scrollbar-thin {

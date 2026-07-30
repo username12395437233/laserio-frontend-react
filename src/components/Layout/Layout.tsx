@@ -28,9 +28,8 @@ export function Layout({ children }: LayoutProps) {
               className="pointer-events-auto flex max-w-xs items-start gap-2 rounded-xl bg-slate-900/95 px-4 py-3 text-xs text-slate-50 shadow-lg ring-1 ring-slate-700/80"
             >
               <div
-                className={`mt-0.5 h-2 w-2 flex-shrink-0 rounded-full ${
-                  toast.type === "success" ? "bg-emerald-400" : "bg-rose-400"
-                }`}
+                className={`mt-0.5 h-2 w-2 flex-shrink-0 rounded-full ${toast.type === "success" ? "bg-emerald-400" : "bg-rose-400"
+                  }`}
               />
               <div className="flex-1">{toast.message}</div>
               <button
@@ -53,39 +52,27 @@ export function Layout({ children }: LayoutProps) {
               className="flex items-center gap-3"
             >
               <img
-                src="/Frame%20839.svg"
-                alt="LAZER DETAILS"
+                src="/logo.svg"
+                alt="Axis World"
                 className="h-10 w-auto"
               />
-              <span className="sr-only">LAZER DETAILS</span>
+              <span className="sr-only">Axis World</span>
             </button>
 
             <nav className="hidden items-center gap-6 text-sm text-sky-100/90 md:flex">
               <NavLink
                 to="/"
                 className={({ isActive }) =>
-                  `transition-colors hover:text-white ${
-                    isActive ? "text-white" : ""
+                  `transition-colors hover:text-white ${isActive ? "text-white" : ""
                   }`
                 }
               >
                 Главная
               </NavLink>
               <NavLink
-                to="/catalog"
-                className={({ isActive }) =>
-                  `transition-colors hover:text-white ${
-                    isActive ? "text-white" : ""
-                  }`
-                }
-              >
-                Карта категорий
-              </NavLink>
-              <NavLink
                 to="/products"
                 className={({ isActive }) =>
-                  `transition-colors hover:text-white ${
-                    isActive ? "text-white" : ""
+                  `transition-colors hover:text-white ${isActive ? "text-white" : ""
                   }`
                 }
               >
@@ -94,8 +81,7 @@ export function Layout({ children }: LayoutProps) {
               <NavLink
                 to="/contacts"
                 className={({ isActive }) =>
-                  `transition-colors hover:text-white ${
-                    isActive ? "text-white" : ""
+                  `transition-colors hover:text-white ${isActive ? "text-white" : ""
                   }`
                 }
               >
@@ -138,80 +124,37 @@ export function Layout({ children }: LayoutProps) {
             <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
               <div className="flex items-center gap-3">
                 <img
-                  src="/Frame%20839.svg"
-                  alt="LAZER DETAILS"
+                  src="/logo.svg"
+                  alt="Axis World"
                   className="h-8 w-auto"
                 />
-                <div className="hidden flex-col text-left sm:flex">
-                  <span className="text-[11px] uppercase tracking-[0.2em]">
-                    LAZER DETAILS
-                  </span>
-                  <span className="mt-1 text-[11px] text-sky-100/80">
-                    Промышленные лазерные комплектующие и решения
-                  </span>
-                </div>
               </div>
 
-              <div className="grid gap-4 text-[11px] sm:grid-cols-3">
-                <div className="space-y-2">
+              <div className="grid gap-4 text-[11px]">
+                {/* <div className="space-y-2">
                   <div className="font-semibold uppercase tracking-wide text-sky-100/90">
                     Контакты
                   </div>
                   <div className="space-y-1">
                     <div>
-                      Отдел продаж:{" "}
-                      <a
-                        href="tel:+74951234567"
-                        className="text-sky-100 hover:text-white"
+                      Почта: <a
+                        href="mailto:axisworld@inbox.ru"
+                        className="text-blue-100 hover:text-blue-400"
                       >
-                        +7 (495) 123‑45‑67
+                        axisworld@inbox.ru
                       </a>
-                    </div>
-                    <div>
-                      Техподдержка:{" "}
-                      <a
-                        href="tel:+74959876543"
-                        className="text-sky-100 hover:text-white"
-                      >
-                        +7 (495) 987‑65‑43
-                      </a>
-                    </div>
-                    <div>
-                      Email:{" "}
-                      <a
-                        href="mailto:info@test.ru"
-                        className="text-sky-100 hover:text-white"
-                      >
-                        info@test.ru
-                      </a>
-                    </div>
-                  </div>
-                </div>
 
-                <div className="space-y-2">
-                  <div className="font-semibold uppercase tracking-wide text-sky-100/90">
-                    Адрес
+                    </div>
+
                   </div>
-                  <div className="text-sky-100/90">
-                    г. Москва, м. Чистые пруды
-                    <br />
-                    Лучевой переулок, д. 7, офис 12
-                    <br />
-                    Пн–Пт: 9:00 – 18:00
-                  </div>
-                </div>
+                </div> */}
+
 
                 <div className="space-y-2">
                   <div className="font-semibold uppercase tracking-wide text-sky-100/90">
                     Разделы сайта
                   </div>
                   <nav className="flex flex-col gap-1">
-                    <NavLink
-                      to="/catalog"
-                      className="text-sky-100/90 hover:text-white"
-                    >
-                      Карта категорий
-                    </NavLink>
                     <NavLink
                       to="/products"
                       className="text-sky-100/90 hover:text-white"
@@ -230,7 +173,7 @@ export function Layout({ children }: LayoutProps) {
             </div>
 
             <div className="mt-5 border-t border-sky-200/20 pt-3 text-[10px] text-sky-100/70">
-              © {new Date().getFullYear()} LAZER DETAILS. Все права защищены.
+              © {new Date().getFullYear()} Axis World. Все права защищены.
             </div>
           </div>
         </footer>

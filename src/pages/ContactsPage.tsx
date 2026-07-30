@@ -1,94 +1,66 @@
+import { useState } from 'react'
+
+const EMAIL = 'axisworld@inbox.ru'
+
 export function ContactsPage() {
+  const [hasConsent, setHasConsent] = useState(false)
+  const [isEmailVisible, setIsEmailVisible] = useState(false)
+
+  const handleShowEmail = () => {
+    if (hasConsent) {
+      setIsEmailVisible(true)
+    }
+  }
+
   return (
     <div className="space-y-8">
       <section className="rounded-2xl bg-white/95 p-6 shadow-card ring-1 ring-slate-200">
         <h1 className="mb-4 text-2xl font-semibold text-slate-900">
           Контакты
         </h1>
-        <p className="mb-6 text-sm text-slate-600">
-          По всем вопросам поставки, технического подбора и сопровождения
-          оборудования вы можете связаться с нами любым удобным способом.
-        </p>
-
         <div className="grid gap-6 md:grid-cols-3">
-          <div className="space-y-3 text-sm">
-            <h2 className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-              Адрес
-            </h2>
-            <p className="text-slate-800">
-              г. Москва, м. Чистые пруды
-              <br />
-              Лучевой переулок, д. 7, офис 12
-            </p>
-          </div>
+          <div className="space-y-4 text-sm">
+            <div className="space-y-3">
+              <label className="flex cursor-pointer items-start gap-2 text-slate-700">
+                <input
+                  type="checkbox"
+                  checked={hasConsent}
+                  onChange={(event) => {
+                    const isChecked = event.target.checked
+                    setHasConsent(isChecked)
+                    if (!isChecked) setIsEmailVisible(false)
+                  }}
+                  className="mt-0.5 h-4 w-4 rounded border-slate-300 text-laser-accent focus:ring-laser-accent"
+                />
+                <span>Согласен с политикой конфиденциальности</span>
+              </label>
 
-          <div className="space-y-3 text-sm">
-            <h2 className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-              Телефоны
-            </h2>
-            <div className="space-y-1 text-slate-800">
-              <p>
-                Отдел продаж:{' '}
-                <a
-                  href="tel:+74951234567"
-                  className="text-laser-accent hover:text-sky-700"
+              {!isEmailVisible ? (
+                <button
+                  type="button"
+                  onClick={handleShowEmail}
+                  disabled={!hasConsent}
+                  className="rounded-full bg-laser-accent px-4 py-2 font-medium text-white transition hover:bg-sky-700 disabled:cursor-not-allowed disabled:opacity-50"
                 >
-                  +7 (495) 123‑45‑67
-                </a>
-              </p>
-              <p>
-                Техническая поддержка:{' '}
-                <a
-                  href="tel:+74959876543"
-                  className="text-laser-accent hover:text-sky-700"
-                >
-                  +7 (495) 987‑65‑43
-                </a>
-              </p>
+                  Показать электронную почту
+                </button>
+              ) : (
+                <p className="animate-[reveal-email_200ms_ease-out] text-slate-800">
+                  Электронная почта:{' '}
+                  <a
+                    href={`mailto:${EMAIL}`}
+                    className="text-laser-accent hover:text-sky-700"
+                  >
+                    {EMAIL}
+                  </a>
+                </p>
+              )}
             </div>
-          </div>
 
-          <div className="space-y-3 text-sm">
-            <h2 className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-              Email и время работы
-            </h2>
-            <p className="text-slate-800">
-              Электронная почта:{' '}
-              <a
-                href="mailto:info@test.ru"
-                className="text-laser-accent hover:text-sky-700"
-              >
-                info@test.ru
-              </a>
-            </p>
-            <p className="text-slate-800">
-              Время работы:
-              <br />
-              Пн–Пт: 9:00 – 18:00
-              <br />
-              Сб–Вс: по предварительной договорённости
-            </p>
+            <p className="text-slate-800">Время работы: 8:00 – 17:00</p>
           </div>
-        </div>
-      </section>
-
-      <section className="rounded-2xl bg-white/95 p-4 shadow-card ring-1 ring-slate-200">
-        <h2 className="mb-3 text-sm font-semibold text-slate-900">
-          Мы на карте
-        </h2>
-        <div className="overflow-hidden rounded-2xl border border-slate-200">
-          <iframe
-            title="Карта офиса Laserio Components"
-            src="https://yandex.ru/map-widget/v1/?ll=37.6449%2C55.7638&z=16&l=map&pt=37.6449%2C55.7638~pm2rdm"
-            width="100%"
-            height="360"
-            frameBorder="0"
-            allowFullScreen
-          />
         </div>
       </section>
     </div>
   )
 }
-
-

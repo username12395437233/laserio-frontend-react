@@ -117,27 +117,6 @@ export type ProductsListParams = {
   limit?: number;
 };
 
-export type OrderPayload = {
-  customer: {
-    full_name: string;
-    company?: string;
-    email: string;
-    phone: string;
-    comment?: string;
-  };
-  items: { product_id: number; qty: number }[];
-  shipped_items?: number[];
-  customer_name?: string;
-  email?: string;
-  phone?: string;
-  comment?: string;
-  address?: string;
-};
-
-export type OrderResponse = {
-  id: number;
-};
-
 async function handleResponse<T>(res: Response): Promise<T> {
   if (!res.ok) {
     const text = await res.text().catch(() => "");
@@ -216,13 +195,3 @@ export async function fetchCategoryProducts(
   return handleResponse<PaginatedProductsResponse>(res);
 }
 
-export async function postOrder(payload: OrderPayload): Promise<OrderResponse> {
-  const res = await fetch(`${API_BASE}/orders`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(payload),
-  });
-  return handleResponse<OrderResponse>(res);
-}

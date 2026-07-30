@@ -91,7 +91,7 @@ export function ProductPage() {
         <div className="flex flex-col gap-3 md:items-end">
           {allImages.length > 0 ? (
             <>
-              <div className="relative flex h-64 w-full max-w-md items-center justify-center overflow-hidden rounded-2xl bg-slate-50">
+              <div className="relative flex h-[21rem] w-full max-w-xl items-center justify-center overflow-hidden rounded-2xl bg-slate-50">
                 <button
                   type="button"
                   onClick={() => {
@@ -141,7 +141,7 @@ export function ProductPage() {
                 )}
               </div>
               {allImages.length > 1 && (
-                <div className="mt-2 flex max-w-md gap-2 overflow-x-auto pb-1">
+                <div className="mt-2 flex max-w-xl gap-2 overflow-x-auto pb-1">
                   {allImages.map((img, index) => (
                     <button
                       key={img}
@@ -164,7 +164,7 @@ export function ProductPage() {
               )}
             </>
           ) : (
-            <div className="flex h-64 w-full max-w-md items-center justify-center rounded-2xl bg-slate-50 text-xs text-slate-400">
+            <div className="flex h-[21rem] w-full max-w-xl items-center justify-center rounded-2xl bg-slate-50 text-xs text-slate-400">
               Нет изображений
             </div>
           )}
@@ -383,7 +383,7 @@ function ProductTabs({
         >
           Описание
         </button>
-        {hasSpecs && (
+        {/* {hasSpecs && (
           <button
             type="button"
             onClick={() => setActive("specs")}
@@ -395,7 +395,7 @@ function ProductTabs({
           >
             Характеристики
           </button>
-        )}
+        )} */}
         {hasDocs && (
           <button
             type="button"
@@ -443,20 +443,12 @@ function ProductTabs({
                   title="Скачать"
                   className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-laser-blue transition hover:bg-sky-50 hover:text-sky-700"
                 >
-                  <svg
+                  <img
+                    src="/pdf-icon.svg"
+                    alt=""
                     aria-hidden="true"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
                     className="h-5 w-5"
-                  >
-                    <path
-                      d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
+                  />
                 </a>
               </li>
             ))}
