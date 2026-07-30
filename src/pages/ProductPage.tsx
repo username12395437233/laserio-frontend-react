@@ -406,7 +406,15 @@ function ProductTabs({
                 : "border-transparent text-slate-500"
             }`}
           >
-            Документация
+            <span className="inline-flex items-center gap-1.5">
+              Документация
+              <img
+                src="/pdf-icon.svg"
+                alt=""
+                aria-hidden="true"
+                className="h-4 w-4"
+              />
+            </span>
           </button>
         )}
       </div>
@@ -443,12 +451,20 @@ function ProductTabs({
                   title="Скачать"
                   className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-laser-blue transition hover:bg-sky-50 hover:text-sky-700"
                 >
-                  <img
-                    src="/pdf-icon.svg"
-                    alt=""
+                  <svg
                     aria-hidden="true"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
                     className="h-5 w-5"
-                  />
+                  >
+                    <path
+                      d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
                 </a>
               </li>
             ))}
