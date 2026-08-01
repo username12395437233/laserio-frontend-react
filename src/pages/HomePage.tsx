@@ -50,13 +50,13 @@ export function HomePage() {
             <span className="text-sky-500">→</span>
           </Link>
 
-          <div className="flex gap-3 overflow-x-auto pb-1 text-[11px] text-sky-100/85">
+          <div className="grid grid-cols-5 gap-3 text-[11px] text-sky-100/85">
             {advantages.map(({ text, color }) => (
               <div
                 key={text}
-                className={`min-w-52 flex-1 rounded-xl border border-white/10 bg-gradient-to-br ${color} px-3 py-2.5 backdrop-blur`}
+                className={`min-w-0 rounded-xl border border-white/10 bg-gradient-to-br ${color} px-3 py-2.5 backdrop-blur`}
               >
-                <p className="text-sm font-medium leading-relaxed text-sky-100">{text}</p>
+                <p className="break-words text-sm font-medium leading-relaxed text-sky-100">{text}</p>
               </div>
             ))}
           </div>
