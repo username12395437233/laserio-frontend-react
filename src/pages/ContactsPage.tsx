@@ -44,7 +44,7 @@ export function ContactsPage() {
                 rel="noreferrer"
                 className="underline decoration-slate-400 underline-offset-2 transition hover:text-laser-accent"
               >
-                персональных данных (политика ПДн)
+                персональных данных
               </a>
               ».
             </span>
