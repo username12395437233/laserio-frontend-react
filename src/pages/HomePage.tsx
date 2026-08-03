@@ -2,24 +2,16 @@ import { Link } from 'react-router-dom'
 
 const advantages = [
   {
-    text: 'Каталог прецизионного оборудования',
+    text: 'Инжиниринговый консалтинг: Технический подбор и аудит совместимости.',
     color: 'from-slate-950/70 to-slate-900/50',
   },
   {
-    text: 'Прямые контракты с передовыми производителями',
+    text: 'Выбор оптимальной юрисдикции для финансового взаимодействия.',
     color: 'from-slate-900/60 to-blue-900/45',
   },
   {
-    text: 'Инжиниринговый консалтинг: технический подбор и аудит совместимости.',
-    color: 'from-blue-900/55 to-sky-800/45',
-  },
-  {
-    text: 'Выбор оптимальной юрисдикции для финансового взаимодействия.',
-    color: 'from-sky-900/50 to-cyan-800/40',
-  },
-  {
     text: 'Полный цикл сопровождения: контроль и ответственность на каждом этапе.',
-    color: 'from-cyan-800/45 to-sky-700/35',
+    color: 'from-blue-900/55 to-sky-800/45',
   },
 ]
 
@@ -35,10 +27,10 @@ export function HomePage() {
         <div className="relative flex flex-col gap-8">
           <div>
             <h1 className="mb-3 text-3xl font-semibold tracking-tight md:text-4xl lg:text-[2.6rem]">
-              Каталог прецизионного высокоточного оборудования
+              КАТАЛОГ ПРЕЦИЗИОННОГО ОБОРУДОВАНИЯ
             </h1>
             <p className="max-w-xl text-sm text-sky-100/90 md:text-[15px]">
-              Прямые контракты с производителями ТОП-уровня
+              ПРЯМЫЕ КОНТРАКТЫ С ПЕРЕДОВЫМИ ПРОИЗВОДИТЕЛЯМИ
             </p>
           </div>
 
@@ -50,7 +42,7 @@ export function HomePage() {
             <span className="text-sky-500">→</span>
           </Link>
 
-          <div className="grid grid-cols-5 gap-3 text-[11px] text-sky-100/85">
+          <div className="grid grid-cols-3 gap-3 text-[11px] text-sky-100/85">
             {advantages.map(({ text, color }) => (
               <div
                 key={text}

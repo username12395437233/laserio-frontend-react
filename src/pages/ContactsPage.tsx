@@ -3,6 +3,7 @@ import { useState } from 'react'
 const EMAIL = 'axisworld@inbox.ru'
 const USER_AGREEMENT_URL = encodeURI('/Пользовательское_соглашение_ПДн_ООО_ОСЬ_МИРА.pdf')
 const PRIVACY_POLICY_URL = encodeURI('/Политика_обработки_ПДн_ООО_ОСЬ_МИРА.pdf')
+const AGREEMENT_POLICY_URL  = encodeURI('/СОГЛАСИЕ.pdf')
 const COMPANY_DETAILS_URL = encodeURI('/Карточка ООО ОСЬ МИРА.pdf')
 
 export function ContactsPage() {
@@ -37,7 +38,15 @@ export function ContactsPage() {
               >
                 Пользовательского соглашения
               </a>
-              » и даю согласие на обработку «
+              » и даю{' '}
+              <a
+                href={AGREEMENT_POLICY_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="underline decoration-slate-400 underline-offset-2 transition hover:text-laser-accent"
+              >
+                «согласие»
+              </a> на обработку «
               <a
                 href={PRIVACY_POLICY_URL}
                 target="_blank"
