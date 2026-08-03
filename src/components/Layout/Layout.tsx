@@ -57,11 +57,11 @@ export function Layout({ children }: LayoutProps) {
               className="flex items-center gap-3"
             >
               <img
-                src="/logo.svg"
-                alt="Axis World"
+                src="/ось_мира_white.svg"
+                alt="Ось мира"
                 className="h-8 w-auto sm:h-10"
               />
-              <span className="sr-only">Axis World</span>
+              <span className="sr-only">Ось мира</span>
             </button>
 
             <nav className="hidden items-center gap-6 text-sm text-sky-100/90 lg:flex">
@@ -167,31 +167,13 @@ export function Layout({ children }: LayoutProps) {
             <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
               <div className="flex items-center gap-3">
                 <img
-                  src="/logo.svg"
-                  alt="Axis World"
+                  src="/ось_мира_white.svg"
+                  alt="Ось мира"
                   className="h-8 w-auto"
                 />
               </div>
 
               <div className="grid gap-4 text-[11px]">
-                {/* <div className="space-y-2">
-                  <div className="font-semibold uppercase tracking-wide text-sky-100/90">
-                    Контакты
-                  </div>
-                  <div className="space-y-1">
-                    <div>
-                      Почта: <a
-                        href="mailto:axisworld@inbox.ru"
-                        className="text-blue-100 hover:text-blue-400"
-                      >
-                        axisworld@inbox.ru
-                      </a>
-
-                    </div>
-
-                  </div>
-                </div> */}
-
 
                 <div className="space-y-2">
                   <div className="font-semibold uppercase tracking-wide text-sky-100/90">
@@ -216,7 +198,7 @@ export function Layout({ children }: LayoutProps) {
             </div>
 
             <div className="mt-5 border-t border-sky-200/20 pt-3 text-[10px] text-sky-100/70">
-              © {new Date().getFullYear()} Axis World. Все права защищены.
+              © {new Date().getFullYear()} Ось мира. Все права защищены.
             </div>
           </div>
         </footer>
