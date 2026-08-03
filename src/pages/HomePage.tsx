@@ -17,8 +17,8 @@ const advantages = [
 
 export function HomePage() {
   return (
-    <div className="space-y-10 md:space-y-12">
-      <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-laser-blue/90 to-sky-700 px-6 py-9 text-white shadow-card md:px-10 md:py-12">
+    <div className="space-y-8 md:space-y-12">
+      <section className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-laser-blue/90 to-sky-700 px-4 py-7 text-white shadow-card sm:px-6 sm:py-9 md:rounded-3xl md:px-10 md:py-12">
         <div className="pointer-events-none absolute inset-0 opacity-40 mix-blend-screen">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.25),transparent_60%),radial-gradient(circle_at_bottom,_rgba(15,23,42,0.9),transparent_55%)]" />
           <div className="absolute inset-x-0 top-1/2 h-px bg-gradient-to-r from-transparent via-sky-400/40 to-transparent" />
@@ -26,7 +26,7 @@ export function HomePage() {
 
         <div className="relative flex flex-col gap-8">
           <div>
-            <h1 className="mb-3 text-3xl font-semibold tracking-tight md:text-4xl lg:text-[2.6rem]">
+            <h1 className="mb-3 text-2xl font-semibold tracking-tight sm:text-3xl md:text-4xl lg:text-[2.6rem]">
               КАТАЛОГ ПРЕЦИЗИОННОГО ОБОРУДОВАНИЯ
             </h1>
             <p className="max-w-xl text-sm text-sky-100/90 md:text-[15px]">
@@ -42,7 +42,7 @@ export function HomePage() {
             <span className="text-sky-500">→</span>
           </Link>
 
-          <div className="grid grid-cols-3 gap-3 text-[11px] text-sky-100/85">
+          <div className="grid gap-3 text-[11px] text-sky-100/85 sm:grid-cols-2 lg:grid-cols-3">
             {advantages.map(({ text, color }) => (
               <div
                 key={text}

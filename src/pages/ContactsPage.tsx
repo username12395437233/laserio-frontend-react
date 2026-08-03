@@ -17,8 +17,8 @@ export function ContactsPage() {
 
   return (
     <div className="space-y-8">
-      <section className="rounded-2xl bg-white/95 p-5 shadow-card ring-1 ring-slate-200 md:p-6">
-        <h1 className="mb-6 text-2xl font-semibold text-slate-900">Контакты</h1>
+      <section className="rounded-2xl bg-white/95 p-4 shadow-card ring-1 ring-slate-200 sm:p-5 md:p-6">
+        <h1 className="mb-5 text-xl font-semibold text-slate-900 sm:mb-6 sm:text-2xl">Контакты</h1>
 
         <div className="space-y-4 text-sm text-slate-700">
           <label className="flex cursor-pointer items-start gap-2 leading-relaxed">
@@ -59,7 +59,7 @@ export function ContactsPage() {
             </span>
           </label>
 
-          <div className="pl-6 text-xs leading-relaxed text-slate-600">
+          <div className="pl-2 text-xs leading-relaxed text-slate-600 sm:pl-6">
             <p className="mb-1">Я ознакомлен и согласен, что:</p>
             <ul className="space-y-0.5">
               <li>· расчеты производятся только по безналичному расчету на р/с Продавца;</li>
@@ -72,14 +72,14 @@ export function ContactsPage() {
           </div>
         </div>
 
-        <div className="grid gap-4 border-t border-slate-100 pt-5 md:grid-cols-3 md:items-center">
-          <div className="md:justify-self-start">
+        <div className="mt-8 grid gap-4 border-t border-slate-100 pt-5 sm:mt-10 md:grid-cols-3 md:items-center">
+          <div className="w-full md:w-auto md:justify-self-start">
             {!isEmailVisible ? (
               <button
                 type="button"
                 onClick={() => setIsEmailVisible(true)}
                 disabled={!hasConsent}
-                className="rounded-full bg-laser-accent px-5 py-2.5 text-sm font-medium text-white transition hover:bg-sky-700 disabled:cursor-not-allowed disabled:opacity-50"
+                className="w-full rounded-full bg-laser-accent px-5 py-2.5 text-sm font-medium text-white transition hover:bg-sky-700 disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto"
               >
                 Показать электронную почту
               </button>
@@ -93,14 +93,14 @@ export function ContactsPage() {
             )}
           </div>
 
-          <p className="text-center text-sm text-slate-700">Время работы: 06:00 – 17:00 МСК</p>
+          <p className="text-left text-sm text-slate-700 md:text-center">Время работы: 06:00 – 17:00 МСК</p>
 
-          <div className="md:justify-self-end">
+          <div className="w-full md:w-auto md:justify-self-end">
             <a
               href={COMPANY_DETAILS_URL}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex rounded-full bg-laser-accent px-5 py-2.5 text-sm font-medium text-white transition hover:bg-sky-700"
+              className="inline-flex w-full justify-center rounded-full bg-laser-accent px-5 py-2.5 text-sm font-medium text-white transition hover:bg-sky-700 sm:w-auto"
             >
               Реквизиты
             </a>

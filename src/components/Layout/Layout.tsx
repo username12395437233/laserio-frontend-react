@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 // import { CartBadge } from "../cart/CartBadge";
 import { Breadcrumbs } from "../navigation/Breadcrumbs";
@@ -14,9 +14,14 @@ export function Layout({ children }: LayoutProps) {
   const navigate = useNavigate();
   const toasts = useToastStore((s) => s.toasts);
   const removeToast = useToastStore((s) => s.removeToast);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const isHome = location.pathname === "/";
   const isProductPage = location.pathname.startsWith("/products/");
+
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [location.pathname]);
 
   return (
     <>
@@ -44,8 +49,8 @@ export function Layout({ children }: LayoutProps) {
         </div>
       )}
       <header className="gradient-header text-white fixed inset-x-0 top-0 z-40">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 md:py-5">
-          <div className="flex items-center gap-10">
+        <div className="relative mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 md:py-4">
+          <div className="flex min-w-0 items-center gap-6 lg:gap-10">
             <button
               type="button"
               onClick={() => navigate("/")}
@@ -54,12 +59,12 @@ export function Layout({ children }: LayoutProps) {
               <img
                 src="/logo.svg"
                 alt="Axis World"
-                className="h-10 w-auto"
+                className="h-8 w-auto sm:h-10"
               />
               <span className="sr-only">Axis World</span>
             </button>
 
-            <nav className="hidden items-center gap-6 text-sm text-sky-100/90 md:flex">
+            <nav className="hidden items-center gap-6 text-sm text-sky-100/90 lg:flex">
               <NavLink
                 to="/"
                 className={({ isActive }) =>
@@ -90,15 +95,53 @@ export function Layout({ children }: LayoutProps) {
             </nav>
           </div>
 
-          <div className="flex items-center gap-4">
-            <GlobalProductSearch />
+          <div className="flex items-center gap-3">
+            <div className="hidden lg:block lg:w-80">
+              <GlobalProductSearch />
+            </div>
+
+            <button
+              type="button"
+              onClick={() => setIsMenuOpen((open) => !open)}
+              aria-label={isMenuOpen ? "Закрыть меню" : "Открыть меню"}
+              aria-expanded={isMenuOpen}
+              className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/20 text-white transition hover:bg-white/10 lg:hidden"
+            >
+              <span className="sr-only">Меню</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-6 w-6" aria-hidden="true">
+                {isMenuOpen ? (
+                  <path d="m6 6 12 12M18 6 6 18" strokeLinecap="round" />
+                ) : (
+                  <path d="M4 7h16M4 12h16M4 17h16" strokeLinecap="round" />
+                )}
+              </svg>
+            </button>
 
             {/* <CartBadge /> */}
           </div>
+
+          {isMenuOpen && (
+            <div className="absolute inset-x-0 top-full border-t border-white/10 bg-laser-blue px-4 py-4 shadow-xl lg:hidden">
+              <nav className="flex flex-col gap-1 text-sm text-sky-100">
+                <NavLink to="/" className={({ isActive }) => `rounded-lg px-3 py-2.5 transition hover:bg-white/10 ${isActive ? "bg-white/10 text-white" : ""}`}>
+                  Главная
+                </NavLink>
+                <NavLink to="/products" className={({ isActive }) => `rounded-lg px-3 py-2.5 transition hover:bg-white/10 ${isActive ? "bg-white/10 text-white" : ""}`}>
+                  Каталог
+                </NavLink>
+                <NavLink to="/contacts" className={({ isActive }) => `rounded-lg px-3 py-2.5 transition hover:bg-white/10 ${isActive ? "bg-white/10 text-white" : ""}`}>
+                  Контакты
+                </NavLink>
+              </nav>
+              <div className="mt-3 border-t border-white/10 pt-3">
+                <GlobalProductSearch />
+              </div>
+            </div>
+          )}
         </div>
       </header>
 
-      <div className="pt-20 md:pt-24 flex min-h-screen flex-col">
+      <div className="flex min-h-screen flex-col pt-16 sm:pt-20 md:pt-24">
         <main className="page-inner flex-1">
           {!isHome && (
             <div className="mb-4 flex items-center justify-between">
@@ -120,7 +163,7 @@ export function Layout({ children }: LayoutProps) {
         </main>
 
         <footer className="gradient-header-reverse py-6 text-xs text-sky-50">
-          <div className="mx-auto max-w-6xl px-6">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
               <div className="flex items-center gap-3">
                 <img

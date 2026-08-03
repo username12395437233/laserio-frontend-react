@@ -76,7 +76,7 @@ export function GlobalProductSearch() {
   const showDropdown = enabled && open
 
   return (
-    <div ref={rootRef} className="relative hidden sm:block">
+    <div ref={rootRef} className="relative w-full">
       <form
         onSubmit={handleSubmit}
         className="flex items-center rounded-full bg-white/5 px-3 py-1.5 text-xs text-sky-100 shadow-sm ring-1 ring-white/15"
@@ -91,7 +91,7 @@ export function GlobalProductSearch() {
             }
           }}
           placeholder="Поиск товара по каталогу"
-          className="w-52 border-none bg-transparent text-xs text-sky-50 placeholder:text-sky-200/70 focus:outline-none"
+          className="min-w-0 flex-1 border-none bg-transparent text-xs text-sky-50 placeholder:text-sky-200/70 focus:outline-none"
         />
         {query && (
           <button
@@ -113,7 +113,7 @@ export function GlobalProductSearch() {
 
       {showDropdown && (
         <div
-          className="absolute right-0 mt-2 w-[360px] rounded-2xl bg-white/95 p-3 text-xs text-slate-800 shadow-card ring-1 ring-slate-200"
+          className="absolute right-0 mt-2 w-full min-w-[min(22rem,calc(100vw-2rem))] max-w-[calc(100vw-2rem)] rounded-2xl bg-white/95 p-3 text-xs text-slate-800 shadow-card ring-1 ring-slate-200 sm:w-[360px]"
           onMouseLeave={() => setOpen(false)}
         >
           {loading && (

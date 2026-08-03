@@ -80,10 +80,10 @@ export function ProductPage() {
   );
 
   return (
-    <div className="space-y-8 rounded-2xl bg-white/95 p-6 shadow-card ring-1 ring-slate-200">
+    <div className="space-y-6 rounded-2xl bg-white/95 p-4 shadow-card ring-1 ring-slate-200 sm:p-6 sm:space-y-8">
       <div className="grid gap-6 md:grid-cols-[minmax(0,2fr),minmax(0,3fr)]">
         <div>
-          <h1 className="mb-4 text-2xl font-semibold text-slate-900">
+          <h1 className="mb-4 break-words text-xl font-semibold text-slate-900 sm:text-2xl">
             {data.name}
           </h1>
         </div>
@@ -91,7 +91,7 @@ export function ProductPage() {
         <div className="flex flex-col gap-3 md:items-end">
           {allImages.length > 0 ? (
             <>
-              <div className="relative flex h-[21rem] w-full max-w-xl items-center justify-center overflow-hidden rounded-2xl bg-slate-50">
+              <div className="relative flex h-64 w-full max-w-xl items-center justify-center overflow-hidden rounded-2xl bg-slate-50 sm:h-[21rem]">
                 <button
                   type="button"
                   onClick={() => {
@@ -164,7 +164,7 @@ export function ProductPage() {
               )}
             </>
           ) : (
-            <div className="flex h-[21rem] w-full max-w-xl items-center justify-center rounded-2xl bg-slate-50 text-xs text-slate-400">
+            <div className="flex h-64 w-full max-w-xl items-center justify-center rounded-2xl bg-slate-50 text-xs text-slate-400 sm:h-[21rem]">
               Нет изображений
             </div>
           )}
