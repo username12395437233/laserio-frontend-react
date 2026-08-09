@@ -1,24 +1,28 @@
-import { useState } from 'react'
+import { useState } from "react";
 
-const EMAIL = 'axisworld@inbox.ru'
-const USER_AGREEMENT_URL = encodeURI('/Пользовательское_соглашение_ПДн_ООО_ОСЬ_МИРА.pdf')
-const PRIVACY_POLICY_URL = encodeURI('/Политика_обработки_ПДн_ООО_ОСЬ_МИРА.pdf')
-const AGREEMENT_POLICY_URL  = encodeURI('/СОГЛАСИЕ.pdf')
-const COMPANY_DETAILS_URL = encodeURI('/Карточка ООО ОСЬ МИРА.pdf')
+const EMAIL = "axisworld@inbox.ru";
+const USER_AGREEMENT_URL = encodeURI(
+  "/Пользовательское_соглашение_ПДн_ООО_ОСЬ_МИРА.pdf",
+);
+const PRIVACY_POLICY_URL = encodeURI("/123.pdf");
+const AGREEMENT_POLICY_URL = encodeURI("/СОГЛАСИЕ.pdf");
+const COMPANY_DETAILS_URL = encodeURI("/Карточка ООО ОСЬ МИРА.pdf");
 
 export function ContactsPage() {
-  const [hasConsent, setHasConsent] = useState(false)
-  const [isEmailVisible, setIsEmailVisible] = useState(false)
+  const [hasConsent, setHasConsent] = useState(false);
+  const [isEmailVisible, setIsEmailVisible] = useState(false);
 
   const handleConsentChange = (isChecked: boolean) => {
-    setHasConsent(isChecked)
-    if (!isChecked) setIsEmailVisible(false)
-  }
+    setHasConsent(isChecked);
+    if (!isChecked) setIsEmailVisible(false);
+  };
 
   return (
     <div className="space-y-8">
       <section className="rounded-2xl bg-white/95 p-4 shadow-card ring-1 ring-slate-200 sm:p-5 md:p-6">
-        <h1 className="mb-5 text-xl font-semibold text-slate-900 sm:mb-6 sm:text-2xl">Контакты</h1>
+        <h1 className="mb-5 text-xl font-semibold text-slate-900 sm:mb-6 sm:text-2xl">
+          Контакты
+        </h1>
 
         <div className="space-y-4 text-sm text-slate-700">
           <label className="flex cursor-pointer items-start gap-2 leading-relaxed">
@@ -38,7 +42,7 @@ export function ContactsPage() {
               >
                 Пользовательского соглашения
               </a>
-              » и даю{' '}
+              » и даю{" "}
               <a
                 href={AGREEMENT_POLICY_URL}
                 target="_blank"
@@ -46,7 +50,8 @@ export function ContactsPage() {
                 className="underline decoration-slate-400 underline-offset-2 transition hover:text-laser-accent"
               >
                 «согласие»
-              </a> на обработку «
+              </a>{" "}
+              на обработку «
               <a
                 href={PRIVACY_POLICY_URL}
                 target="_blank"
@@ -62,11 +67,17 @@ export function ContactsPage() {
           <div className="pl-2 text-xs leading-relaxed text-slate-600 sm:pl-6">
             <p className="mb-1">Я ознакомлен и согласен, что:</p>
             <ul className="space-y-0.5">
-              <li>· расчеты производятся только по безналичному расчету на р/с Продавца;</li>
-              <li>· вся юридически значимая переписка ведется по электронной почте;</li>
               <li>
-                · цена и сроки фиксируются в индивидуальном коммерческом предложении и не
-                являются публичной офертой.
+                · расчеты производятся только по безналичному расчету на р/с
+                Продавца;
+              </li>
+              <li>
+                · вся юридически значимая переписка ведется по электронной
+                почте;
+              </li>
+              <li>
+                · цена и сроки фиксируются в индивидуальном коммерческом
+                предложении и не являются публичной офертой.
               </li>
             </ul>
           </div>
@@ -85,15 +96,20 @@ export function ContactsPage() {
               </button>
             ) : (
               <p className="animate-[reveal-email_200ms_ease-out] text-sm text-slate-800">
-                Электронная почта:{' '}
-                <a href={`mailto:${EMAIL}`} className="text-laser-accent hover:text-sky-700">
+                Электронная почта:{" "}
+                <a
+                  href={`mailto:${EMAIL}`}
+                  className="text-laser-accent hover:text-sky-700"
+                >
                   {EMAIL}
                 </a>
               </p>
             )}
           </div>
 
-          <p className="text-left text-sm text-slate-700 md:text-center">Время работы: 06:00 – 17:00 МСК</p>
+          <p className="text-left text-sm text-slate-700 md:text-center">
+            Время работы: 06:00 – 17:00 МСК
+          </p>
 
           <div className="w-full md:w-auto md:justify-self-end">
             <a
@@ -108,5 +124,5 @@ export function ContactsPage() {
         </div>
       </section>
     </div>
-  )
+  );
 }
