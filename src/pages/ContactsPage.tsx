@@ -1,12 +1,10 @@
 import { useState } from "react";
 
 const EMAIL = "axisworld@inbox.ru";
-const USER_AGREEMENT_URL = encodeURI(
-  "/Пользовательское_соглашение_ПДн_ООО_ОСЬ_МИРА.pdf",
-);
-const PRIVACY_POLICY_URL = encodeURI("/personal_politic.pdf");
-const AGREEMENT_POLICY_URL = encodeURI("/СОГЛАСИЕ.pdf");
-const COMPANY_DETAILS_URL = encodeURI("/Карточка ООО ОСЬ МИРА.pdf");
+const USER_AGREEMENT_URL = encodeURI("/AXIS_WORLD_personal_agreement.pdf");
+const PRIVACY_POLICY_URL = encodeURI("/AXIS_WORLD_personal_politic.pdf");
+const AGREEMENT_POLICY_URL = encodeURI("/AXIS_WORLD_agreement.pdf");
+const COMPANY_DETAILS_URL = encodeURI("/AXIS_WORLD_references.pdf");
 
 export function ContactsPage() {
   const [hasConsent, setHasConsent] = useState(false);
